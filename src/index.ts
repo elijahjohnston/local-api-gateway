@@ -7,6 +7,7 @@ import { APIGatewayProxyStructuredResultV2 } from 'aws-lambda';
 import { InvocationType, InvokeCommand, InvokeCommandOutput, LambdaClient } from '@aws-sdk/client-lambda';
 import { httpRequestToEvent } from './apiGateway';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 
 const app = express();
 app.use(cors<Request>());
