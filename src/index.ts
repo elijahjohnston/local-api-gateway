@@ -1,4 +1,5 @@
 import express, { NextFunction, Request, Response } from 'express';
+import cors from 'cors';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import queue from 'express-queue';
@@ -9,7 +10,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 
 const app = express();
-app.use(cors());
+app.use(cors<Request>());
 const address = process.env.LISTEN_ADDRESS || '0.0.0.0';
 const port = Number(process.env.LISTEN_PORT) || 8000;
 
