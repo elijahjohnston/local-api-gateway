@@ -1,5 +1,4 @@
 import { Request } from 'express';
-import * as url from 'url';
 import { APIGatewayProxyEvent } from 'aws-lambda/trigger/api-gateway-proxy';
 import QueryString from 'qs';
 
@@ -16,7 +15,7 @@ export function httpRequestToEvent(request: Request): APIGatewayProxyEvent {
 
     const queryStringParameters: Record<string, string> = {};
     objectMap(
-        request.query,
+        request.query as Record<string, any>,
         (value: string | QueryString.ParsedQs | string[] | QueryString.ParsedQs[] | undefined, key: string) => {
             if (Array.isArray(value)) {
                 queryStringParameters[`${key}[]`] = value.join(',');
